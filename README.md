@@ -5,7 +5,7 @@
 3. 安装必要的Python库：
    - 安装 Flask： `pip install Flask falsk-cors Werkzeug jinja2` 
    - 安装 vtk： `pip install vtk`
-4. 下载并设置 [Three.js](https://threejs.org/)
+4. 下载 [Three.js](https://threejs.org/)  将three.js目录放在client/assets/
 
 ### 运行
 
