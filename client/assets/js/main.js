@@ -187,8 +187,12 @@ function loadModel(fileObj) {
       });
       break;
     case "obj":
-      loaderOBJ.load(objectUrl, function (geometry) {
-        processGeometry(geometry);
+      loaderOBJ.load(objectUrl, function (object) {
+        object.traverse(function (child) {
+          if (child instanceof THREE.Mesh) {
+            processGeometry(child.geometry); 
+          }
+        });
       });
       break;
     case "vtk":
