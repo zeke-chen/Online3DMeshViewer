@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>3D Mesh Viewer</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Orbitron&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+    <div id="title">
+        <img src="assets/images/view.png" id="titleImage" alt="title image">
+        <span>3D Mesh</span>
+    </div>
+
+    <div id="toolbar">
+        <!-- Added type="file" and changed Opacity for better visibility -->
+        <input type="file" id="fileInput" style="opacity:0; position: absolute;">
+        <button class="toolbtn" id="openBtn" title="Open File" onclick="document.getElementById('fileInput').click();">
+            <img src="assets/images/open.svg" alt="Open">
+        </button>
+        <button class="toolbtn" id="colorBtn" title="Change Model Color">
+            <img src="assets/images/color.png" alt="Color">
+            <label for="colorPicker" id="colorPickerLabel" style="display: none;">
+                <input type="color" id="colorPicker">
+            </label>
+        </button>
+        <button class="toolbtn" id="cut-button" title="Cut Plane"
+            onclick="document.getElementById('cut-button').click();">
+            <img src="assets/images/cut.png" alt="Cut">
+        </button>
+        <button class="toolbtn" id="clearBtn" title="Clear Scene">
+            <img src="assets/images/clear.png" alt="Clear">
+        </button>
+    </div>
+
+    <div id="cut-dialog" hidden>
+        <h2>Enter Plane Details</h2>
+
+        <label for="origin-input">Origin:</label>
+        <div>
+            <input type="number" id="origin-x-input" placeholder="X">
+            <input type="number" id="origin-y-input" placeholder="Y">
+            <input type="number" id="origin-z-input" placeholder="Z">
+        </div>
+
+        <label for="normal-input">Normal:</label>
+        <div>
+            <input type="number" id="normal-x-input" placeholder="X">
+            <input type="number" id="normal-y-input" placeholder="Y">
+            <input type="number" id="normal-z-input" placeholder="Z">
+        </div>
+
+        <button id="confirm-button">Confirm</button>
+        <button id="exit-button">Exit</button>
+    </div>
+
+    <button id="themeBtn" style="position: absolute; right: 10px; top: 10px; height: 30px; width: 30px;"></button>
+
+	<script type="importmap">
+	    {
+                "imports": {
+                    "three": "./assets/three.js/build/three.module.js",
+                    "three/addons/": "./assets/three.js/examples/jsm/"
+                }
+            }
+    </script>
+
+    <script type="module" src="./assets/js/main.js"></script>
+
+</body>
+
+</html>
